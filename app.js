@@ -44,7 +44,7 @@ app.get('/', function (req, res) {
 
 // Launch the server and listen
 var port = 8000;
-app.listen(port, function () {
+app.listen(process.env.PORT || port, function () {
   console.log('Listening on port ' + port);
   var wsdl_path = "/wsdl";
   soap.listen(app, wsdl_path, serviceObject, xml);
