@@ -42,6 +42,8 @@ app.get('/', function (req, res) {
 app.post('/wsdl', function (req, res) {
   console.log('1');
   console.log('req', req);
+  console.log('\n\n\n\n');
+  console.log('xml_lib', xml_lib(req));
 })
 
 app.post('/wsdl?wsdl', function (req, res) {
