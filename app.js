@@ -10,6 +10,7 @@ const xml_lib = require('xml');
 // the splitter function, used by the service
 function splitter_function(args) {
     console.log('splitter_function');
+    console.log('args', args);
     var splitter = args.splitter;
     var splitted_msg = args.message.split(splitter);
     var result = [];
@@ -21,14 +22,11 @@ function splitter_function(args) {
 
 // the service
 var serviceObject = {
-  MessageSplitterService: {
-        MessageSplitterServiceSoapPort: {
-            MessageSplitter: splitter_function
-        },
-        MessageSplitterServiceSoap12Port: {
-            MessageSplitter: splitter_function
-        }
+  ProviderService: {
+    ProviderSoapPort: {
+      SaveProvider: splitter_function
     }
+  }
 };
 
 // load the WSDL file
