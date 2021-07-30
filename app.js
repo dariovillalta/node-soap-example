@@ -46,6 +46,9 @@ var serviceObject = {
         },
         MessageSplitterServiceSoap12Port: {
             MessageSplitter: splitter_function
+        },
+        Prepare_Questionnaire: {
+          Prepare_Questionnaire: prepare_questionnaire
         }
     }
 };
