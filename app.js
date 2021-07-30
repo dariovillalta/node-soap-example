@@ -5,6 +5,7 @@
 var soap = require('soap');
 var express = require('express');
 var fs = require('fs');
+const xml_lib = require('xml');
 
 // the splitter function, used by the service
 function splitter_function(args) {
@@ -15,9 +16,7 @@ function splitter_function(args) {
     for(var i=0; i<splitted_msg.length; i++){
       result.push(splitted_msg[i]);
     }
-    return {
-        result: result
-        }
+    return xml_lib( {pregunta: 'Oye como va!'} );
 }
 
 // the service
