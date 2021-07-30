@@ -39,6 +39,16 @@ app.get('/', function (req, res) {
   res.send('Node Soap Example!<br /><a href="https://github.com/macogala/node-soap-example#readme">Git README</a>');
 })
 
+app.post('/wsdl', function (req, res) {
+  console.log('1');
+  console.log('req', req);
+})
+
+app.post('/wsdl?wsdl', function (req, res) {
+  console.log('2');
+  console.log('req', req);
+})
+
 // Launch the server and listen
 var port = 8000;
 app.listen(process.env.PORT || port, function () {
