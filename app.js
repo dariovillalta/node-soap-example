@@ -20,6 +20,24 @@ function splitter_function(args) {
         }
 }
 
+function prepare_questionnaire() {
+  var banco_preguntas = [
+    {
+      pregunta: 'Oye como va?',
+      tabla: 'ciberseguridad'
+    },
+    {
+      pregunta: 'mi ritmo?',
+      tabla: 'proveedores'
+    },
+    {
+      pregunta: 'bueno pa gozar?',
+      tabla: 'canales'
+    }
+  ];
+  return banco_preguntas;
+}
+
 // the service
 var serviceObject = {
   MessageSplitterService: {
