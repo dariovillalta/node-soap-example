@@ -39,8 +39,27 @@ app.get('/', function (req, res) {
   res.send('Node Soap Example!<br /><a href="https://github.com/macogala/node-soap-example#readme">Git README</a>');
 })
 
-app.post('/wsdl', function (req, res) {
+app.post('/wsdl', function (XmlDocument doc) {
   console.log('1');
+  XmlNamespaceManager nsManager = new XmlNamespaceManager(doc.NameTable); 
+  nsManager .AddNamespace(formNamespace, formURI);
+  nsManager .AddNamespace("dfs",
+"http://schemas.microsoft.com/office/infopath/2003/dataFormSolution");
+
+  XmlNode root = doc.DocumentElement;
+  XmlNodeList list = root.SelectNodes("/dfs:IPDocument/my:myFields/my:prodList/my:product", nsManager);
+
+  foreach (XmlNode node in list)
+  {
+    string name = node.SelectSingleNode
+        ("/dfs:IPDocument/my:myFields/my:prodList/my:product/my:name", nsManager).InnerText;
+    string price = node.SelectSingleNode
+        ("/dfs:IPDocument/my:myFields/my:prodList/my:product/my:price", nsManager).InnerText;
+    string amount = node.SelectSingleNode
+        ("/dfs:IPDocument/my:myFields/my:prodList/my:product/my:amount", nsManager).InnerText;
+
+    SubmitToDataBase(name,price, amount);
+  }
   console.log('req', req);
   console.log('\n\n\n\n');
   console.log('xml_lib', xml_lib(req));
