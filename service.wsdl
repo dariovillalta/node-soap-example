@@ -73,10 +73,10 @@
   <!-- SERVICE:  -->
   <wsdl:service name="MessageSplitterService">
     <wsdl:port name="MessageSplitterServiceSoapPort" binding="tns:MessageSplitterServiceSoapBinding">
-      <soap:address location="https://prospective-tool.herokuapp.com/wsdl"/>
+      <soap:address location="https://prospective-tool.herokuapp.com/wsdl?wsdl"/>
     </wsdl:port>
     <wsdl:port name="MessageSplitterServiceSoap12Port" binding="tns:MessageSplitterServiceSoap12Binding">
-      <soap12:address location="https://prospective-tool.herokuapp.com/wsdl"/>
+      <soap12:address location="https://prospective-tool.herokuapp.com/wsdl?wsdl"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
