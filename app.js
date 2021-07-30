@@ -8,16 +8,21 @@ var fs = require('fs');
 
 // the splitter function, used by the service
 function splitter_function(args) {
-    console.log('splitter_function');
-    var splitter = args.splitter;
-    var splitted_msg = args.message.split(splitter);
-    var result = [];
-    for(var i=0; i<splitted_msg.length; i++){
-      result.push(splitted_msg[i]);
+  var banco_preguntas = [
+    {
+      pregunta: 'Oye como va?',
+      tabla: 'ciberseguridad'
+    },
+    {
+      pregunta: 'mi ritmo?',
+      tabla: 'proveedores'
+    },
+    {
+      pregunta: 'bueno pa gozar?',
+      tabla: 'canales'
     }
-    return {
-        result: result
-        }
+  ];
+  return banco_preguntas;
 }
 
 function prepare_questionnaire() {
