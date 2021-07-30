@@ -8,39 +8,16 @@ var fs = require('fs');
 
 // the splitter function, used by the service
 function splitter_function(args) {
-  var banco_preguntas = [
-    {
-      pregunta: 'Oye como va?',
-      tabla: 'ciberseguridad'
-    },
-    {
-      pregunta: 'mi ritmo?',
-      tabla: 'proveedores'
-    },
-    {
-      pregunta: 'bueno pa gozar?',
-      tabla: 'canales'
+    console.log('splitter_function');
+    var splitter = args.splitter;
+    var splitted_msg = args.message.split(splitter);
+    var result = [];
+    for(var i=0; i<splitted_msg.length; i++){
+      result.push(splitted_msg[i]);
     }
-  ];
-  return banco_preguntas;
-}
-
-function prepare_questionnaire() {
-  var banco_preguntas = [
-    {
-      pregunta: 'Oye como va?',
-      tabla: 'ciberseguridad'
-    },
-    {
-      pregunta: 'mi ritmo?',
-      tabla: 'proveedores'
-    },
-    {
-      pregunta: 'bueno pa gozar?',
-      tabla: 'canales'
-    }
-  ];
-  return banco_preguntas;
+    return {
+        result: result
+        }
 }
 
 // the service
@@ -51,9 +28,6 @@ var serviceObject = {
         },
         MessageSplitterServiceSoap12Port: {
             MessageSplitter: splitter_function
-        },
-        Prepare_Questionnaire: {
-          Prepare_Questionnaire: prepare_questionnaire
         }
     }
 };
