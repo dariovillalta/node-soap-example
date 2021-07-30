@@ -16,7 +16,7 @@ function splitter_function(args) {
     for(var i=0; i<splitted_msg.length; i++){
       result.push(splitted_msg[i]);
     }
-    return xml_lib( {pregunta: 'Oye como va!'} );
+    return xml_lib( {pregunta: '1'} );
 }
 
 // the service
